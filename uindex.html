@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        form {
+            margin-bottom: 20px;
+        }
+
+        input {
+            padding: 8px;
+            font-size: 16px;
+        }
+
+        button {
+            padding: 8px 12px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        li::before {
+            content: "•";
+            color: #2980b9;
+            font-size: 24px;
+            display: inline-block;
+            margin-right: 10px;
+        }
+    </style>
+    <title>Security To-Do List</title>
+</head>
+<body>
+
+    <form id="securityForm">
+        <label for="taskInput">Nova Tarefa:</label>
+        <input type="text" id="taskInput" placeholder="Digite sua tarefa de segurança" required>
+        <button type="button" onclick="addTask()">Adicionar Tarefa</button>
+    </form>
+
+    <ul id="taskList">
+        <!-- Lista de tarefas será exibida aqui -->
+    </ul>
+
+    <script>
+        function addTask() {
+            var taskInput = document.getElementById('taskInput');
+            var taskList = document.getElementById('taskList');
+            
+            if (taskInput.value !== '') {
+                var newTask = document.createElement('li');
+                newTask.textContent = taskInput.value;
+                taskList.appendChild(newTask);
+                taskInput.value = '';
+            }
+        }
+    </script>
+
+</body>
+</html>
